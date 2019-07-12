@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="checking">
+        <![CDATA[
+        select * from EMPLOYEE
+        ]]>
+    </sql-query>
+
+    <sql-query name="checking__count">
+        <![CDATA[
+        select count(*) from (select * from EMPLOYEE) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmploteeList">
+        <![CDATA[
+        select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 4
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmploteeList__count">
+        <![CDATA[
+        select count(*) from (select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 4) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeSelectVar">
+        <![CDATA[
+        select * from EMPLOYEE where EID=:SelectedEmployee
+        ]]>
+    <query-param name="SelectedEmployee" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="EmployeeSelectVar__count">
+        <![CDATA[
+        select count(*) from (select * from EMPLOYEE where EID=:SelectedEmployee) wmTempTable
+        ]]>
+    <query-param name="SelectedEmployee" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SearchEmployees">
+        <![CDATA[
+        select E.*,D.NAME from EMPLOYEE E,DEPARTMENT D where E.DEPTID=D.DEPTID
+        ]]>
+    </sql-query>
+
+    <sql-query name="SearchEmployees__count">
+        <![CDATA[
+        select count(*) from (select E.*,D.NAME from EMPLOYEE E,DEPARTMENT D where E.DEPTID=D.DEPTID) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SelectEmployee">
+        <![CDATA[
+        select * from EMPLOYEE E where EID=:SearchID or EID=:LiveListID
+        ]]>
+    <query-param name="SearchID" type="java.lang.Integer"/>
+    <query-param name="LiveListID" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SelectEmployee__count">
+        <![CDATA[
+        select count(*) from (select * from EMPLOYEE E where EID=:SearchID or EID=:LiveListID) wmTempTable
+        ]]>
+    <query-param name="SearchID" type="java.lang.Integer"/>
+    <query-param name="LiveListID" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_DeptId2">
+        <![CDATA[
+        select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 2
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_DeptId2__count">
+        <![CDATA[
+        select count(*) from (select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 2) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_Deptid3">
+        <![CDATA[
+        select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 3
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_Deptid3__count">
+        <![CDATA[
+        select count(*) from (select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 3) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_DeptId1">
+        <![CDATA[
+        select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 1
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_DeptId1__count">
+        <![CDATA[
+        select count(*) from (select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 1) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="DepartmentCount">
+        <![CDATA[
+        SELECT COUNT(NAME) FROM DEPARTMENT
+        ]]>
+    </sql-query>
+
+    <sql-query name="DepartmentCount__count">
+        <![CDATA[
+        select count(*) from (SELECT COUNT(NAME) FROM DEPARTMENT) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="Srv_Var_EmployeeCount">
+        <![CDATA[
+        SELECT COUNT(eid) FROM EMPLOYEE
+        ]]>
+    </sql-query>
+
+    <sql-query name="Srv_Var_EmployeeCount__count">
+        <![CDATA[
+        select count(*) from (SELECT COUNT(eid) FROM EMPLOYEE) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="_ColleagueDetails">
+        <![CDATA[
+        select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID =:selectedemployeedeptid AND e.EID !=:selectedemployeeid
+        ]]>
+    <query-param name="selectedemployeedeptid" type="java.lang.Integer"/>
+    <query-param name="selectedemployeeid" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="_ColleagueDetails__count">
+        <![CDATA[
+        select count(*) from (select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID =:selectedemployeedeptid AND e.EID !=:selectedemployeeid) wmTempTable
+        ]]>
+    <query-param name="selectedemployeedeptid" type="java.lang.Integer"/>
+    <query-param name="selectedemployeeid" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SelectEmployeeVar">
+        <![CDATA[
+        select * from EMPLOYEE E where EID=:SearchID or EID=:LiveListID
+        ]]>
+    <query-param name="SearchID" type="java.lang.Integer"/>
+    <query-param name="LiveListID" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SelectEmployeeVar__count">
+        <![CDATA[
+        select count(*) from (select * from EMPLOYEE E where EID=:SearchID or EID=:LiveListID) wmTempTable
+        ]]>
+    <query-param name="SearchID" type="java.lang.Integer"/>
+    <query-param name="LiveListID" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_DeptId4">
+        <![CDATA[
+        select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 4
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_DeptId4__count">
+        <![CDATA[
+        select count(*) from (select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 4) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="NoOfDepartment">
+        <![CDATA[
+        SELECT COUNT(NAME) FROM DEPARTMENT
+        ]]>
+    </sql-query>
+
+    <sql-query name="NoOfDepartment__count">
+        <![CDATA[
+        select count(*) from (SELECT COUNT(NAME) FROM DEPARTMENT) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="TotalBudget">
+        <![CDATA[
+        SELECT SUM(budget) FROM DEPARTMENT
+        ]]>
+    </sql-query>
+
+    <sql-query name="TotalBudget__count">
+        <![CDATA[
+        select count(*) from (SELECT SUM(budget) FROM DEPARTMENT) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_DeptId5">
+        <![CDATA[
+        select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 5
+        ]]>
+    </sql-query>
+
+    <sql-query name="EmployeeListOf_DeptId5__count">
+        <![CDATA[
+        select count(*) from (select e.*,d.Name from EMPLOYEE e,DEPARTMENT d where e.DEPTID = d.DEPTID and e.DEPTID = 5) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

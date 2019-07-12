@@ -1,0 +1,57 @@
+[ {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Departments",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "EmployeeDetailDialog",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "EmployeeDetails",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "EmployeesView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Statistics",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "footer",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "header",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "headerLogin",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "leftnav",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "rightnav",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "topnav",
+  "type" : "PARTIAL",
+  "params" : [ ]
+} ]

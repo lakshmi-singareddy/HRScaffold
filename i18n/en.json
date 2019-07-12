@@ -1,0 +1,17 @@
+{
+  "messages" : {
+    "com.wavemaker.runtime.json$InvalidJsonObject" : "Incorrect Json Object \"${0}\"",
+    "com.wavemaker.runtime.json$MessageNotReadable" : "Message not readable",
+    "com.wavemaker.runtime.json$UnexpectedError" : "Unexpected error \"${0}\",please check server logs for more information",
+    "com.wavemaker.runtime.json$UnrecognizedField" : "Unrecognized field \"${0}\""
+  },
+  "formats" : {
+    "date" : "yyyy-MM-dd",
+    "time" : "hh:mm a"
+  },
+  "files" : {
+    "angular" : "en",
+    "fullCalendar" : null,
+    "moment" : null
+  }
+}

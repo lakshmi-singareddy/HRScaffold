@@ -1,0 +1,230 @@
+<wm-page name="page1"> 
+    <wm-header name="header1" content="header"></wm-header> 
+    <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-left-panel name="left_panel1" columnwidth="2" content="leftnav"></wm-left-panel> 
+        <wm-page-content name="page_content1" columnwidth="10"> 
+            <wm-layoutgrid name="layoutgrid1"> 
+                <wm-gridrow name="gridrow1"> 
+                    <wm-gridcolumn name="gridcolumn1" columnwidth="6" class="col-xs-6"> 
+                        <wm-label name="label1" caption="Employees" class="h2"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn2" columnwidth="6" horizontalalign="right" class="col-xs-6"> 
+                        <wm-label name="label18" caption="View as:" padding="unset 1em unset unset"></wm-label> 
+                        <wm-switch name="switch1" on-change="switch1Change($event, widget)" dataset="List,Grid" datavalue="List" margin=".5em unset unset unset" width="120"></wm-switch> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow2"> 
+                    <wm-gridcolumn name="gridcolumn4" columnwidth="1"></wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow3"> 
+                    <wm-gridcolumn name="gridcolumn5" columnwidth="12"> 
+                        <wm-table deleterow="false" updaterow="false" insertrow="false" gridfirstrowselect="false" readonlygrid="true" name="EmployeeGrid" dataset="bind:Variables.HrdbEmployeeData.dataSet" on-click="Widgets.pagedialog1.open()" title="Grid View" show="false"> 
+                            <wm-table-column binding="eid" caption="Eid" type="integer" primary-key="true" generator="identity" readonly="true" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                            <wm-table-column binding="firstname" caption="Firstname" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                            <wm-table-column binding="lastname" caption="Lastname" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                            <wm-table-column binding="street" caption="Street" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                            <wm-table-column binding="city" caption="City" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                            <wm-table-column binding="state" caption="State" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                            <wm-table-column binding="zip" caption="Zip" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                            <wm-table-column binding="birthdate" caption="Birthdate" type="date" readonly="false" col-class="" col-ng-class="" search-placeholder="Enter date in yyyy-mm-dd" datepattern="yyyy-MM-dd" formatpattern="toDate" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                            <wm-table-column binding="picurl" caption="Picurl" type="string" widget-type="image" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"> 
+                                <img alt="{{row?.getProperty('picurl')}}" class="" data-ng-class="" src="{{row?.getProperty('picurl')}}"> 
+                            </wm-table-column> 
+                            <wm-table-column binding="jobtitle" caption="Jobtitle" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                        </wm-table> 
+                        <wm-list show="true" name="EmployeeList" on-click="Actions.goToPage_EmployeeDetails.invoke()" listclass="list-group" itemclass="col-xs-12 col-sm-6 col-md-4 col-lg-3" itemsperrow="4" template="true" dataset="bind:Variables.HrdbEmployeeData.dataSet" navigation="None" title="List View"> 
+                            <wm-listtemplate name="listtemplate1" layout="thumbnail" display="inline"> 
+                                <wm-container name="container2" class="thumbnail" backgroundcolor="#ffffff" horizontalalign="center" bordercolor="#D1D7DA" margin="1em" padding="0em" borderwidth="unset unset unset unset"> 
+                                    <wm-container name="container3" cursor="pointer" margin="unset unset unset unset" padding="unset unset unset unset"> 
+                                        <wm-picture name="picture1" height="150" class="picture" shape="thumbnail" picturesource="bind:Variables.HrdbEmployeeData.dataSet.data[$i].picurl" textalign="center" width="150" borderstyle="none" cursor="pointer" backgroundcolor="transparent" margin="2em unset" padding="0em" borderwidth="unset unset unset unset"></wm-picture> 
+                                    </wm-container> 
+                                    <wm-container name="container4" class="caption" data-template-ctr="true" bordercolor="#D1D7DA" borderstyle="solid" horizontalalign="left" borderwidth="1px 0px 0px 0px" padding="unset 1.5em"> 
+                                        <wm-anchor name="anchor1" caption="bind:Variables.HrdbEmployeeData.dataSet.data[$i].firstname+' '+Variables.HrdbEmployeeData.dataSet.data[$i].lastname" class="h4" whitespace="normal" margin="unset unset unset unset"></wm-anchor> 
+                                        <wm-label name="label3" width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.data[$i].department.name" whitespace="nowrap" opacity="0.8" margin=".25em unset 0em unset"></wm-label> 
+                                    </wm-container> 
+                                </wm-container> 
+                            </wm-listtemplate> 
+                        </wm-list> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow4"> 
+                    <wm-gridcolumn name="gridcolumn7" columnwidth="12"> 
+                        <wm-container name="formcontainer" show="false"> 
+                            <wm-form show="true" name="form1" title="Personal Details" class="panel-default"> 
+                                <wm-layoutgrid name="layoutgrid2"> 
+                                    <wm-gridrow name="gridrow6"> 
+                                        <wm-gridcolumn name="gridcolumn10" columnwidth="12"> 
+                                            <wm-composite name="composite2" captionposition="left" horizontalalign="right"> 
+                                                <wm-label name="label4" class="col-md-3" caption="First Name" textalign="right"></wm-label> 
+                                                <wm-container name="container5" class="col-md-9"> 
+                                                    <wm-text name="firstname" required="true" tabindex="1" placeholder="Enter First Name"></wm-text> 
+                                                </wm-container> 
+                                            </wm-composite> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow7"> 
+                                        <wm-gridcolumn name="gridcolumn11" columnwidth="12"> 
+                                            <wm-gridrow name="gridrow8"> 
+                                                <wm-gridcolumn name="gridcolumn12"> 
+                                                    <wm-composite name="composite3" captionposition="left" horizontalalign="right"> 
+                                                        <wm-label name="label5" class="col-md-3" caption="Last Name" textalign="right"></wm-label> 
+                                                        <wm-container name="container6" class="col-md-9"> 
+                                                            <wm-text name="lastname" required="true" tabindex="1" placeholder="Enter Last Name"></wm-text> 
+                                                        </wm-container> 
+                                                    </wm-composite> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow9"> 
+                                        <wm-gridcolumn name="gridcolumn13" columnwidth="12"> 
+                                            <wm-composite name="composite4"> 
+                                                <wm-label name="label6" class="col-md-3" caption="Password" textalign="right"></wm-label> 
+                                                <wm-container name="container7" class="col-md-9"> 
+                                                    <wm-text name="password" type="password" required="true" tabindex="1" placeholder="Enter Password"></wm-text> 
+                                                </wm-container> 
+                                            </wm-composite> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow10"> 
+                                        <wm-gridcolumn name="gridcolumn14" columnwidth="12"> 
+                                            <wm-layoutgrid name="layoutgrid3"> 
+                                                <wm-gridrow name="gridrow11"> 
+                                                    <wm-gridcolumn name="gridcolumn15" columnwidth="2"> 
+                                                        <wm-label name="label7" fontsize="20" caption="Address"></wm-label> 
+                                                    </wm-gridcolumn> 
+                                                    <wm-gridcolumn name="gridcolumn16" columnwidth="8"></wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                                <wm-gridrow name="gridrow12"> 
+                                                    <wm-gridcolumn name="gridcolumn17" columnwidth="12"> 
+                                                        <wm-composite name="composite5"> 
+                                                            <wm-label name="label8" caption="Street" class="col-md-3"></wm-label> 
+                                                            <wm-container name="container8" class="col-md-9"> 
+                                                                <wm-text name="street"></wm-text> 
+                                                            </wm-container> 
+                                                        </wm-composite> 
+                                                    </wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                                <wm-gridrow name="gridrow13"> 
+                                                    <wm-gridcolumn name="gridcolumn18" columnwidth="12"> 
+                                                        <wm-composite name="composite6"> 
+                                                            <wm-label name="label9" caption="City" class="col-md-3"></wm-label> 
+                                                            <wm-container name="container9" class="col-md-9"> 
+                                                                <wm-text name="city"></wm-text> 
+                                                            </wm-container> 
+                                                        </wm-composite> 
+                                                    </wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                                <wm-gridrow name="gridrow14"> 
+                                                    <wm-gridcolumn name="gridcolumn19" columnwidth="12"> 
+                                                        <wm-composite name="composite7"> 
+                                                            <wm-label name="label10" caption="State" class="col-md-3"></wm-label> 
+                                                            <wm-container name="container10" class="col-md-9"> 
+                                                                <wm-text name="state"></wm-text> 
+                                                            </wm-container> 
+                                                        </wm-composite> 
+                                                    </wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                                <wm-gridrow name="gridrow15"> 
+                                                    <wm-gridcolumn name="gridcolumn20" columnwidth="12"> 
+                                                        <wm-composite name="composite8"> 
+                                                            <wm-label name="label11" caption="Zip Code" class="col-md-3"></wm-label> 
+                                                            <wm-container name="container11" class="col-md-9"> 
+                                                                <wm-text name="zip" type="number"></wm-text> 
+                                                            </wm-container> 
+                                                        </wm-composite> 
+                                                    </wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                            </wm-layoutgrid> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow16"> 
+                                        <wm-gridcolumn name="gridcolumn21" columnwidth="12"> 
+                                            <wm-composite name="composite9"> 
+                                                <wm-label name="label12" class="col-md-3" caption="Birth Date" textalign="right"></wm-label> 
+                                                <wm-container name="container12" class="col-md-9"> 
+                                                    <wm-date name="birthdate"></wm-date> 
+                                                </wm-container> 
+                                            </wm-composite> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow17"> 
+                                        <wm-gridcolumn name="gridcolumn22" columnwidth="12"> 
+                                            <wm-composite name="composite10"> 
+                                                <wm-label name="label13" caption="Twitter ID" class="col-md-3"></wm-label> 
+                                                <wm-container name="container13" class="col-md-9"> 
+                                                    <wm-text name="twitterid"></wm-text> 
+                                                </wm-container> 
+                                            </wm-composite> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow18"> 
+                                        <wm-gridcolumn name="gridcolumn23" columnwidth="12"> 
+                                            <wm-composite name="composite11"> 
+                                                <wm-label name="label14" caption="Department Name" class="col-md-3"></wm-label> 
+                                                <wm-container name="container14" class="col-md-9"> 
+                                                    <wm-composite name="composite12"> 
+                                                        <wm-container name="container15" class="col-md-9"> 
+                                                            <wm-select name="deptname" dataset="bind:Variables.HrdbDepartmentData.dataSet" datafield="All Fields" displayfield="name"></wm-select> 
+                                                        </wm-container> 
+                                                    </wm-composite> 
+                                                </wm-container> 
+                                            </wm-composite> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow19"> 
+                                        <wm-gridcolumn name="gridcolumn24" columnwidth="12"> 
+                                            <wm-composite name="composite13"> 
+                                                <wm-label name="label15" caption="Manager ID" class="col-md-3"></wm-label> 
+                                                <wm-container name="container16" class="col-md-9"> 
+                                                    <wm-composite name="composite14"> 
+                                                        <wm-container name="container17" class="col-md-9"> 
+                                                            <wm-select name="managerid" dataset="bind:Variables.HrdbEmployeeData.dataSet" datafield="All Fields" displayfield="firstname"></wm-select> 
+                                                        </wm-container> 
+                                                    </wm-composite> 
+                                                </wm-container> 
+                                            </wm-composite> 
+                                            <wm-gridcolumn columnwidth="12" name="gridcolumn26"> 
+                                                <wm-composite name="composite16"> 
+                                                    <wm-label caption="Role" class="col-md-3" name="label17"></wm-label> 
+                                                    <wm-container class="col-md-9" name="container19"> 
+                                                        <wm-composite name="composite17"> 
+                                                            <wm-container class="col-md-9" name="container20"> 
+                                                                <wm-select dataset="admin,user" name="role"></wm-select> 
+                                                            </wm-container> 
+                                                        </wm-composite> 
+                                                    </wm-container> 
+                                                </wm-composite> 
+                                            </wm-gridcolumn> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow20"> 
+                                        <wm-gridcolumn name="gridcolumn25" columnwidth="12"> 
+                                            <wm-composite name="composite15"> 
+                                                <wm-label name="label16" class="col-md-3" caption="Upload Image" textalign="right"></wm-label> 
+                                                <wm-container name="container18" class="col-md-9"> 
+                                                    <wm-fileupload name="fileupload1" width="344" height="20" on-select="Variables.FileServiceuploadFile.invoke()"></wm-fileupload> 
+                                                </wm-container> 
+                                            </wm-composite> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                </wm-layoutgrid> 
+                                <wm-buttongroup name="buttongroup1" horizontalalign="right" class="form-action col-md-12"> 
+                                    <wm-button name="button2" caption="Reset" type="reset" class="btn-secondary"></wm-button> 
+                                    <wm-button name="button3" caption="Cancel" type="button" class="btn-warning"></wm-button> 
+                                    <wm-button name="button4" caption="Save" type="submit" class="btn-primary" on-click="InsertinEmployeetable"></wm-button> 
+                                </wm-buttongroup> 
+                            </wm-form> 
+                        </wm-container> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow5"> 
+                    <wm-gridcolumn name="gridcolumn9" columnwidth="12"></wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer name="footer1" content="footer"></wm-footer>  
+    <wm-pagedialog name="pagedialog1" content="EmployeeDetailDialog" title="PROFILE"></wm-pagedialog>  
+</wm-page>

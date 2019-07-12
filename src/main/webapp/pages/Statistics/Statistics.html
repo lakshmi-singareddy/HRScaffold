@@ -1,0 +1,59 @@
+<wm-page name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel> 
+        <wm-page-content columnwidth="10" name="page_content1"> 
+            <wm-label name="label1" class="h2" caption="Statistics"></wm-label> 
+            <wm-layoutgrid name="layoutgrid1"> 
+                <wm-gridrow name="gridrow1"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn1" padding="1em 1em unset 1em"> 
+                        <wm-panel title="Department Budget" collapsible="false" showheader="true" name="panel1" badgetype="default" closable="false" show="true" expanded="true"> 
+                            <wm-chart highlightpoints="true" yaxislabel="Budget" xaxislabel="Department Name" type="Line" name="chart9" dataset="bind:Variables.HrdbDepartmentData.dataSet" showxaxis="true" showyaxis="true" tooltips="true" showlegend="false" captions="true" height="220" theme="Retro" offsetleft="50" xaxisdatakey="name" yaxisdatakey="budget" offsetright="60" offsettop="25" offsetbottom="55"></wm-chart> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" padding="1em 1em unset 1em"> 
+                        <wm-panel title="Department Statistics" collapsible="false" showheader="true" name="panel2"> 
+                            <wm-chart staggerlabels="false" showcontrols="false" yaxislabel="Quarter" xaxislabel="Departments" type="Column" name="chart10" xaxisdatakey="deptcode" yaxisdatakey="q1,q2,q3,q4" dataset="bind:Variables.HrdbDepartmentData.dataSet" showxaxis="true" showyaxis="true" reducexticks="false" barspacing="0.5" theme="Retro" height="220" offsetleft="50" legendtype="classic" offsettop="25" offsetright="35"></wm-chart> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn3" padding="1em 1em unset 1em"> 
+                        <wm-panel title="Department Statistics" collapsible="false" showheader="true" name="panel3"> 
+                            <wm-chart xaxislabel="Departments" type="Area" name="chart11" height="220" xaxisdatakey="name" yaxisdatakey="q1,q2,q3,q4" dataset="bind:Variables.HrdbDepartmentData.dataSet" theme="Retro" offsetleft="50" offsetright="60" width="100%"></wm-chart> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow2"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn4" padding="1em 1em unset 1em"> 
+                        <wm-panel title="Revenue by Department" collapsible="false" showheader="true" name="panel4"> 
+                            <wm-chart type="Pie" name="chart12" showlabels="true" showlabelsoutside="true" labeltype="percent" theme="Terrestrial" legendtype="classic" xaxisdatakey="name" yaxisdatakey="budget" dataset="bind:Variables.HrdbDepartmentData.dataSet" offsetleft="0" offsettop="0" offsetright="0" offsetbottom="0"></wm-chart> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn5" padding="1em 1em unset 1em"> 
+                        <wm-panel title="Department  Budget" collapsible="false" showheader="true" name="panel5"> 
+                            <wm-chart barspacing="0.4" showcontrols="false" showvalues="true" showlegend="false" yaxislabel="Budget" xaxislabel="Departments" type="Bar" name="chart14" xaxisdatakey="deptcode" yaxisdatakey="budget" dataset="bind:Variables.HrdbDepartmentData.dataSet" theme="Retro" showxaxis="true" showyaxis="false" captions="false"></wm-chart> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" padding="1em 1em unset 1em"> 
+                        <wm-panel title="1st Quarter Department" collapsible="false" showheader="true" name="panel6"> 
+                            <wm-chart highlightpoints="true" type="Cumulative Line" name="chart15" xaxisdatakey="deptcode" yaxisdatakey="q1" dataset="bind:Variables.HrdbDepartmentData.dataSet" theme="Terrestrial" offsetleft="75" offsetright="25" offsettop="25" offsetbottom="50"></wm-chart> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow3"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn7" padding="1em 1em unset 1em"> 
+                        <wm-panel title="Department Revenue" collapsible="false" showheader="true" name="panel7"> 
+                            <wm-chart labeltype="percent" dataset="bind:Variables.HrdbDepartmentData.dataSet" yaxisdatakey="budget" xaxisdatakey="name" type="Donut" name="chart16" theme="Azure" legendtype="classic"></wm-chart> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn8" padding="1em 1em unset 1em"> 
+                        <wm-panel title="Department Statistics" collapsible="false" showheader="true" name="panel8"> 
+                            <wm-chart showydistance="true" showxdistance="true" type="Bubble" name="chart17" xaxisdatakey="deptid" yaxisdatakey="q1,q2,q3,q4" dataset="bind:Variables.HrdbDepartmentData.dataSet" bubblesize="name" theme="Terrestrial"></wm-chart> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

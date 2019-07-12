@@ -1,0 +1,44 @@
+{
+  "username" : "root",
+  "password" : "pramati",
+  "url" : "jdbc:mysql://hrdatabase:3306/hrdb?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull",
+  "driverClass" : "com.mysql.jdbc.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.MySQLDialect",
+  "serviceId" : "hrdb",
+  "packageName" : "com.hrdb",
+  "dbType" : "MySQL",
+  "host" : "hrdatabase",
+  "dbName" : "hrdb",
+  "port" : "3306",
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "DEPARTMENT",
+    "schema" : null
+  }, {
+    "table" : "EMPLOYEE",
+    "schema" : null
+  }, {
+    "table" : "USER",
+    "schema" : null
+  }, {
+    "table" : "VACATION",
+    "schema" : null
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "update",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null,
+    "reImport" : false
+  },
+  "readOnly" : false
+}

@@ -1,0 +1,46 @@
+<wm-partial name="partial1"> 
+    <wm-layoutgrid name="layoutgrid1"> 
+        <wm-gridrow name="gridrow1"> 
+            <wm-gridcolumn columnwidth="3" name="gridcolumn1" horizontalalign="center"> 
+                <wm-picture pictureaspect="Both" width="80%" name="picture1" picturesource="bind:Variables.SelectedEmployeeDetails.dataSet.picurl"></wm-picture> 
+            </wm-gridcolumn> 
+            <wm-gridcolumn columnwidth="4" name="gridcolumn2"> 
+                <wm-layoutgrid name="layoutgrid2"> 
+                    <wm-gridrow name="gridrow4"> 
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn10"> 
+                            <wm-label width="339" height="24" fontsize="20" name="label3" caption="bind:Variables.SelectedEmployeeDetails.dataSet.firstname+' '+Variables.SelectedEmployeeDetails.dataSet.lastname"></wm-label> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow5"> 
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn13"> 
+                            <wm-label name="label5" caption="bind:Variables.SelectedEmployeeDetails.dataSet.department.name"></wm-label> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow6"> 
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn16"> 
+                            <wm-label name="label6" caption="bind:Variables.SelectedEmployeeDetails.dataSet.birthdate | toDate: 'dd MMM , yyyy'"></wm-label> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow7"> 
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn19"> 
+                            <wm-label name="label6_1" caption="bind:Variables.SelectedEmployeeDetails.dataSet.street"></wm-label> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow8"> 
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn22"> 
+                            <wm-label name="label7" caption="bind:Variables.SelectedEmployeeDetails.dataSet.city"></wm-label> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow9"> 
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn25"> 
+                            <wm-label name="label8" caption="bind:Variables.SelectedEmployeeDetails.dataSet.state+' - '+Variables.SelectedEmployeeDetails.dataSet.zip"></wm-label> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+            </wm-gridcolumn> 
+            <wm-gridcolumn columnwidth="5" name="gridcolumn3"> 
+                <wm-prefab zoom="5" prefabname="googlemaps" name="googlemaps1" locations="bind:Variables.SelectedEmployeeDetails.dataSet" markertype="Address" address="city" info="city"></wm-prefab> 
+            </wm-gridcolumn> 
+        </wm-gridrow> 
+    </wm-layoutgrid> 
+</wm-partial>

@@ -1,0 +1,17 @@
+<wm-partial name="leftnav" type="left-panel"> 
+    <wm-nav name="leftnavigation" type="pills" layout="stacked"> 
+        <wm-nav-item name="list_latestUpdate"> 
+            <wm-anchor caption="Dashboard" name="dashboardButton" iconclass="wi wi-dashboard" on-click="Actions.goToPage_Main.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="list_inTheNews"> 
+            <wm-anchor on-click="Actions.goToPage_EmployeesView.invoke()" hyperlink="GridPage" caption="Employees" name="gridButton" iconclass="wi wi-group"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="list_help"> 
+            <wm-anchor caption="Departments" name="widgetsButton" iconclass="wi wi-account-circle" on-click="Actions.goToPage_Departments.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="list_lists"> 
+            <wm-anchor caption="Statistics" iconclass="wi wi-bar-graph" name="listsButton" hyperlink="index.html#/EmployeeListPage" on-click="Actions.goToPage_Statistics.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="list_i18n"></wm-nav-item> 
+    </wm-nav> 
+</wm-partial>

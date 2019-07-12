@@ -1,0 +1,109 @@
+<wm-page name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1" padding="unset .5em">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1">
+                        <wm-label name="mainHeading" caption="Dashboard" class="h2" fontsize="2" fontunit="em" margin=".3em unset 0em unset"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2" horizontalalign="right" padding="1em unset"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2" padding="unset unset unset unset">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn4" padding="1em .5em">
+                        <wm-tile name="summaryOne" backgroundcolor="#F86C6B" color="#FFFFFF" padding="3em 2em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow4">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn11" horizontalalign="center" class="col-xs-4">
+                                        <wm-icon iconsize="3.5em" name="icon1" iconclass="glyphicon glyphicon-globe"></wm-icon>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn12" class="col-xs-8" padding="unset unset unset .5em">
+                                        <wm-label name="label3" width="100%" caption="DEPARTMENTS" class="text-uppercase" fontsize="14"></wm-label>
+                                        <wm-label width="100%" name="label4" caption="bind:Variables.HrdbDepartmentCount.dataSet[$i]['COUNT(NAME)']" class="h3" required="false" color="#ffffff" margin="0px unset"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-tile>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn5" padding="1em .5em">
+                        <wm-tile name="summaryTwo" color="#FFFFFF" backgroundcolor="#63C2DE" padding="3em 2em">
+                            <wm-layoutgrid name="layoutgrid3">
+                                <wm-gridrow name="gridrow7">
+                                    <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn20" class="col-xs-4">
+                                        <wm-icon iconsize="3.5em" name="icon2" iconclass="fa fa-money"></wm-icon>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn21" class="col-xs-8" padding="unset unset unset .5em">
+                                        <wm-label width="100%" caption="Budget" class="text-uppercase" name="label5" fontsize="14"></wm-label>
+                                        <wm-label width="100%" caption="bind:'$'+Variables.HrdbTotalBudget.dataSet[$i]['SUM(budget)']" class="h3" name="label6" color="#ffffff" margin="0px unset"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-tile>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn6" padding="1em .5em">
+                        <wm-tile name="summaryThree" color="#FFFFFF" backgroundcolor="#F8CB00" padding="3em 2em">
+                            <wm-layoutgrid name="layoutgrid4">
+                                <wm-gridrow name="gridrow8">
+                                    <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn22" class="col-xs-4">
+                                        <wm-icon iconsize="3.5em" name="icon3" iconclass="glyphicon glyphicon-user"></wm-icon>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn23" class="col-xs-8" padding="unset unset unset .5em">
+                                        <wm-label width="100%" caption="EMPLOYEES" class="text-uppercase" name="label7" fontsize="14"></wm-label>
+                                        <wm-label width="100%" caption="bind:Variables.HrdbSrv_Var_EmployeeCount.dataSet[$i]['COUNT(eid)']" class="h3" name="label8" color="#ffffff" margin="0px unset"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-tile>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn10" padding="1em .5em">
+                        <wm-tile name="summaryFour" color="#FFFFFF" backgroundcolor="#4DBD74" padding="3em 2em">
+                            <wm-layoutgrid name="layoutgrid5">
+                                <wm-gridrow name="gridrow9">
+                                    <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn24" class="col-xs-4">
+                                        <wm-icon iconsize="3.5em" name="icon4" iconclass="glyphicon glyphicon-ok"></wm-icon>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn25" class="col-xs-8" padding="unset unset unset .5em">
+                                        <wm-label width="100%" caption="MESSAGES" class="text-uppercase" name="label9"></wm-label>
+                                        <wm-label width="100%" caption="221" class="h3" name="label10" fontsize="14" color="#ffffff" margin="0px unset"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-tile>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3" padding="unset unset unset unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn7" padding="1em .5em">
+                        <wm-panel collapsible="false" showheader="true" name="panel2" title="Departments By Revenue" height="24em">
+                            <wm-chart showcontrols="false" yaxisdatakey="budget" xaxisdatakey="name" ynumberformat="Exponential" xnumberformat="Decimal Digits" aggregation="count" orderby="name:asc" dataset="bind:Variables.HrdbDepartmentData.dataSet" type="Pie"
+                                name="chart1" offsetright="0" tooltips="true" showlegend="true" xaxislabel="Departments" yaxislabel="Revenue" yaxislabeldistance="12" theme="Retro" legendposition="Top" legendtype="classic" width="100%" offsetleft="30"></wm-chart>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn8" padding="1em .5em">
+                        <wm-tabs name="tabs1">
+                            <wm-tabpane name="tabpane2" padding="0px" title="Employees">
+                                <wm-list dataset="bind:Variables.HrdbEmployeeData.dataSet" listclass="list-group" itemclass="list-group-item" name="livelist2" itemsperrow="2">
+                                    <wm-listtemplate layout="gridlayout" name="listtemplate2" height="95px">
+                                        <wm-layoutgrid name="layoutgrid8" class="gridlayout">
+                                            <wm-gridrow name="gridrow10">
+                                                <wm-gridcolumn name="gridcolumn21_1" columnwidth="5" data-template-ctr="true">
+                                                    <wm-picture picturesource="bind:Variables.HrdbEmployeeData.dataSet.data[$i].picurl" height="64" name="picture3" class="picture" shape="rounded" width="64"></wm-picture>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn name="gridcolumn22_1" columnwidth="7" data-template-ctr="true">
+                                                    <wm-label fontsize="14" name="label12" width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.data[$i].firstname+' '+Variables.HrdbEmployeeData.dataSet.data[$i].lastname"></wm-label>
+                                                    <wm-label name="label13" width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.data[$i].department.name"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-tabpane>
+                        </wm-tabs>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

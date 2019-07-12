@@ -1,0 +1,48 @@
+<wm-page layouttype="one-column" columns="1" name="page1"> 
+    <wm-header height="auto" name="header" content="headerLogin">  
+    </wm-header> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="column1"> 
+            <wm-layoutgrid name="loginGrid" height="auto"> 
+                <wm-gridrow name="loginGridRow" height="100%"> 
+                    <wm-gridcolumn name="paddingColumnLeft" columnwidth="4"></wm-gridcolumn> 
+                    <wm-gridcolumn name="loginContentColumn" columnwidth="4" horizontalalign="left"> 
+                        <wm-tile name="loginPanel" horizontalalign="left" backgroundcolor="#e3e3e3" bordercolor="#b8b8b8" borderstyle="solid" height="auto" width="100%" margin="20% unset 20% unset" borderwidth="1px 1px 1px 1px"> 
+                            <wm-login name="loginForm" data-ng-controller="loginFormController">       
+                                <wm-form name="form_loginForm">
+                                    <wm-composite name="userNameField"> 
+                                        <wm-label caption="Username" name="userNameLabel"></wm-label> 
+                                        <wm-text placeholder="Enter username" name="j_username" class="app-login-username" width="100%" autocomplete="off" autocorrect="off" autocapitalize="off" updateon="default"></wm-text> 
+                                    </wm-composite>
+                                    <wm-composite name="passwordField"> 
+                                        <wm-label caption="Password" name="passwordLabel"></wm-label> 
+                                        <wm-text type="password" name="j_password" placeholder="Enter password" class="app-login-password" width="100%" autocomplete="off" autocorrect="off" autocapitalize="off" updateon="default"></wm-text> 
+                                    </wm-composite>
+                                    <wm-button type="submit" caption="Sign in" width="100%" class="app-login-button btn-primary" name="loginButton"></wm-button>
+                                    <wm-composite name="remembermeFields" class="app-login-rememberme"> 
+                                        <wm-checkbox caption="Remember Me" name="j_rememberme"></wm-checkbox> 
+                                    </wm-composite>
+                                    <wm-anchor caption="Forgot Password" class="app-login-forgotlink" name="forgetPassword"></wm-anchor>
+                                    <wm-label caption="Note: Use user/user to login" width="100%" color="#999" fontweight="normal"></wm-label>
+                                </wm-form>
+                            </wm-login> 
+                        </wm-tile> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="paddingColumnRight" columnwidth="4"></wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer name="footer"> 
+        <wm-layoutgrid height="60" name="footerlayout"> 
+            <wm-gridrow name="footerrow"> 
+                <wm-gridcolumn name="footerleft" verticalalign="bottom" columnwidth="6"> 
+                    <wm-label caption="Powered by Hyscale" textalign="left" name="poweredby"></wm-label> 
+                </wm-gridcolumn> 
+                <wm-gridcolumn horizontalalign="right" verticalalign="bottom" name="footerright" columnwidth="6"> 
+                    <wm-label caption="Copyright 2014 [company name]" textalign="right" name="copyright"></wm-label> 
+                </wm-gridcolumn> 
+            </wm-gridrow> 
+        </wm-layoutgrid> 
+    </wm-footer> 
+</wm-page>

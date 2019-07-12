@@ -1,0 +1,71 @@
+[ {
+  "urlPattern" : "/pages/Common/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Departments/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/EmployeeDetailDialog/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/EmployeeDetails/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/EmployeesView/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Login/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Main/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Statistics/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/footer/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/header/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/leftnav/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/rightnav/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/topnav/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/headerLogin/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+} ]

@@ -1,0 +1,164 @@
+<wm-page name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-left-panel content="leftnav" columnwidth="2" name="left_panel1"></wm-left-panel> 
+        <wm-page-content columnwidth="10" name="page_content1"> 
+            <wm-label name="label21" class="h2" caption="Departments"></wm-label> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1" title="Engineering"> 
+                    <wm-list listclass="list-group" name="livelist5" dataset="bind:Variables.HrdbEmployeeListOf_DeptId1.dataSet"> 
+                        <wm-listtemplate layout="gridlayout" name="listtemplate5_1"> 
+                            <wm-layoutgrid class="gridlayout" name="layoutgrid5"> 
+                                <wm-gridrow name="gridrow7"> 
+                                    <wm-gridcolumn columnwidth="2" data-template-ctr="true" name="gridcolumn19" class="col-xs-2"> 
+                                        <wm-picture class="picture" shape="circle" width="100%" name="picture5" picturesource="bind:Variables.HrdbEmployeeListOf_DeptId1.dataSet.content[$i].PICURL"></wm-picture> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="10" data-template-ctr="true" name="gridcolumn20" class="col-xs-10" padding="unset unset unset 1em"> 
+                                        <wm-label fontsize="14" width="100%" caption="bind:Variables.HrdbEmployeeListOf_DeptId1.dataSet.FIRSTNAME +' '+Variables.HrdbEmployeeListOf_DeptId1.dataSet.LASTNAME" name="label39"></wm-label> 
+                                        <wm-label width="100%" caption="bind:Variables.HrdbEmployeeListOf_DeptId1.dataSet.BIRTHDATE | toDate: 'dd MMM , yyyy'" name="label33_1"></wm-label> 
+                                        <wm-label width="100%" caption="bind:Variables.HrdbEmployeeListOf_DeptId1.dataSet.STREET" name="label36"></wm-label> 
+                                        <wm-label width="100%" caption="bind:Variables.HrdbEmployeeListOf_DeptId1.dataSet.STATE" name="label31"></wm-label> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2" title="Marketing"> 
+                    <wm-list listclass="list-group" name="Marketing_EmployeeList" dataset="bind:Variables.HrdbEmployeeListOf_DeptId2.dataSet"> 
+                        <wm-listtemplate layout="panel" name="listtemplate2"> 
+                            <wm-panel collapsible="false" data-template-ctr="true" showheader="true" name="panel1" title="bind:Variables.HrdbEmployeeListOf_DeptId2.dataSet[$i].FIRSTNAME"> 
+                                <wm-layoutgrid name="layoutgrid6"> 
+                                    <wm-gridrow name="gridrow8"> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn21" class="col-xs-2"> 
+                                            <wm-picture name="picture1" picturesource="bind:Variables.HrdbEmployeeListOf_DeptId2.dataSet[$i].PICURL" width="100%" pictureaspect="H"></wm-picture> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="10" name="gridcolumn22" class="col-xs-10" padding="unset unset unset 1em"> 
+                                            <wm-layoutgrid name="layoutgrid7"> 
+                                                <wm-gridrow name="gridrow11"> 
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn30"> 
+                                                        <wm-label fontsize="14" width="100%" caption="bind:Variables.HrdbEmployeeListOf_DeptId2.dataSet[$i].FIRSTNAME+' '+Variables.HrdbEmployeeListOf_DeptId2.dataSet[$i].LASTNAME" name="label37_1"></wm-label> 
+                                                    </wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                                <wm-gridrow name="gridrow12"> 
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn33"> 
+                                                        <wm-label name="label13" caption="bind:Variables.HrdbEmployeeListOf_DeptId2.dataSet[$i].BIRTHDATE | toDate: 'dd MMMM , yyyy'"></wm-label> 
+                                                    </wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                                <wm-gridrow name="gridrow13"> 
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn36"> 
+                                                        <wm-label name="label12" caption="bind:Variables.HrdbEmployeeListOf_DeptId2.dataSet[$i].STREET"></wm-label> 
+                                                    </wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                                <wm-gridrow name="gridrow9"> 
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn14_1"> 
+                                                        <wm-label name="label38" caption="bind:Variables.HrdbEmployeeListOf_DeptId2.dataSet[$i].CITY"></wm-label> 
+                                                    </wm-gridcolumn> 
+                                                </wm-gridrow> 
+                                            </wm-layoutgrid> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                </wm-layoutgrid> 
+                            </wm-panel> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane3" title="General and Admin"> 
+                    <wm-list listclass="list-group" name="GeneralandAdmin_EmployeeList" dataset="bind:Variables.HrdbEmployeeListOf_Deptid3.dataSet"> 
+                        <wm-listtemplate layout="gridlayout" name="listtemplate3"> 
+                            <wm-layoutgrid class="gridlayout" name="layoutgrid10"> 
+                                <wm-gridrow name="gridrow22"> 
+                                    <wm-gridcolumn columnwidth="2" data-template-ctr="true" name="gridcolumn27_1" class="col-xs-2"> 
+                                        <wm-picture class="picture" shape="rounded" width="100%" name="picture6" picturesource="bind:Variables.HrdbEmployeeListOf_Deptid3.dataSet[$i].PICURL"></wm-picture> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="10" data-template-ctr="true" name="gridcolumn28_1" class="col-xs-10" fontunit="px" padding="unset unset unset 1em"> 
+                                        <wm-label width="100%" caption="bind:Variables.HrdbEmployeeListOf_Deptid3.dataSet.FIRSTNAME+' '+Variables.HrdbEmployeeListOf_Deptid3.dataSet[$i].LASTNAME" name="label29"></wm-label> 
+                                        <wm-label width="100%" caption="bind:Variables.HrdbEmployeeListOf_Deptid3.dataSet.BIRTHDATE" name="label23"></wm-label> 
+                                        <wm-label width="100%" caption="bind:Variables.HrdbEmployeeListOf_Deptid3.dataSet.STREET" name="label26"></wm-label> 
+                                        <wm-label width="100%" caption="bind:Variables.HrdbEmployeeListOf_Deptid3.dataSet.CITY" name="label30"></wm-label> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane4" title="Sales"> 
+                    <wm-list listclass="list-group" name="Sales_EmployeeList" dataset="bind:Variables.HrdbEmployeeListOf_DeptId4.dataSet" itemclass="list-group-item"> 
+                        <wm-listtemplate layout="gridlayout" name="listtemplate4"> 
+                            <wm-layoutgrid class="gridlayout" name="layoutgrid4"> 
+                                <wm-gridrow name="gridrow6"> 
+                                    <wm-gridcolumn columnwidth="2" data-template-ctr="true" name="gridcolumn17" class="col-xs-2"> 
+                                        <wm-picture class="picture" shape="rounded" width="100%" name="picture4" picturesource="bind:Variables.HrdbEmployeeListOf_DeptId4.dataSet[$i].PICURL"></wm-picture> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="10" name="gridcolumn20_1" class="col-xs-10" padding="unset unset unset 1em"> 
+                                        <wm-layoutgrid name="layoutgrid8"> 
+                                            <wm-gridrow name="gridrow14"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn21_1"> 
+                                                    <wm-label fontsize="14" width="100%" caption="bind:Variables.HrdbEmployeeListOf_DeptId4.dataSet[$i].FIRSTNAME+' '+Variables.HrdbEmployeeListOf_DeptId4.dataSet[$i].LASTNAME" name="label43"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow15"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn22_1"> 
+                                                    <wm-label caption="bind:Variables.HrdbEmployeeListOf_DeptId4.dataSet[$i].BIRTHDATE | toDate: 'dd MMM , yyyy'" name="label44"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow16"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn23"> 
+                                                    <wm-label caption="bind:Variables.HrdbEmployeeListOf_DeptId4.dataSet[$i].STREET" name="label45"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow17"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn24"> 
+                                                    <wm-label caption="bind:Variables.HrdbEmployeeListOf_DeptId4.dataSet[$i].STATE" name="label46"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                        </wm-layoutgrid> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane5" title="Professional Services"> 
+                    <wm-list listclass="list-group" name="ProfessionalServices_EmployeeLis" dataset="bind:Variables.HrdbEmployeeListOf_DeptId5.dataSet" itemclass="list-group-item"> 
+                        <wm-listtemplate layout="gridlayout" name="listtemplate5"> 
+                            <wm-layoutgrid class="gridlayout" name="layoutgrid4_1"> 
+                                <wm-gridrow name="gridrow6_1"> 
+                                    <wm-gridcolumn columnwidth="2" data-template-ctr="true" name="gridcolumn17_1" class="col-xs-2"> 
+                                        <wm-picture class="picture" shape="rounded" width="100%" name="picture4_1" picturesource="bind:Variables.HrdbEmployeeListOf_DeptId5.dataSet[$i].PICURL"></wm-picture> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="10" name="gridcolumn25" class="col-xs-10" padding="unset unset unset 1em"> 
+                                        <wm-layoutgrid name="layoutgrid9"> 
+                                            <wm-gridrow name="gridrow18"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn26"> 
+                                                    <wm-label fontsize="14" width="100%" caption="bind:Variables.HrdbEmployeeListOf_DeptId5.dataSet[$i].FIRSTNAME+' '+Variables.HrdbEmployeeListOf_DeptId5.dataSet[$i].LASTNAME" name="label47"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow19"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn27"> 
+                                                    <wm-label caption="bind:Variables.HrdbEmployeeListOf_DeptId5.dataSet[$i].BIRTHDATE | toDate: 'dd MMMM , yyyy'" name="label48"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow20"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn28"> 
+                                                    <wm-label caption="bind:Variables.HrdbEmployeeListOf_DeptId5.dataSet[$i].STREET" name="label49"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow21"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn29"> 
+                                                    <wm-label caption="bind:Variables.HrdbEmployeeListOf_DeptId5.dataSet[$i].STATE" name="label50"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                        </wm-layoutgrid> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

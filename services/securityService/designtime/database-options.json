@@ -1,0 +1,19 @@
+{
+  "modelName" : "hrdb",
+  "entityName" : "User",
+  "tableName" : "USER",
+  "unamePropertyName" : "username",
+  "unameColumnName" : "USERNAME",
+  "uidPropertyName" : "userid",
+  "uidColumnName" : "USERID",
+  "pwPropertyName" : "password",
+  "pwColumnName" : "PASSWORD",
+  "rolePropertyName" : "",
+  "roleColumnName" : "",
+  "useRolesQuery" : true,
+  "rolesByUsernameQuery" : "SELECT USERID, ROLE FROM USER WHERE USERNAME = ?",
+  "tenantIdField" : null,
+  "defTenantId" : 0,
+  "tenantIdPropertyName" : null,
+  "queryType" : "SQL"
+}
