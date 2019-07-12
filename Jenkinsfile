@@ -19,7 +19,8 @@ pipeline {
     
      stage('Artifactory configuration') {
             steps {
-            script { 
+            script {
+                 echo "first" 
                  def server = Artifactory.newServer url: 'http://172.17.0.2:8081/artifactory', username: 'admin', password: 'Hysc@l3@789'
                  def uploadSpec = """{
                     "files": [{
@@ -27,7 +28,7 @@ pipeline {
                        "target": "HRMS/${BUILD_NUMBER}/"
                     }]
                  }"""
-
+                 echo "second"
                  server.upload(uploadSpec) 
                }
                          
