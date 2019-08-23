@@ -32,7 +32,7 @@ pipeline {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/*-props.yaml'
             echo 'Deploying '
-            sh 'hyscalectl login demo.hyscale.io -udemo@hyscale.com -pHysc@l3@987'
+            sh 'hyscalectl login -hdemo.hyscale.io -udemo@hyscale.com -pHysc@l3@987'
             sh 'hyscalectl deploy -s hrms-frontend -e qa -p ${WORKSPACE}/dev-props.yaml -a hrms-cli'
             sleep(120)
         }
