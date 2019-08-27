@@ -34,8 +34,7 @@ pipeline {
             echo 'Deploying '
             sh 'hyscalectl login -hdemo.hyscale.io -uhyscalecli@hyscale.io -pHysc@l3@987'
             sh 'hyscalectl deploy -s hrms-frontend -e qa -p ${WORKSPACE}/dev-props.yaml -a hrms-cli'
-            
-            sleep(120)
+            sh 'hyscalectl track -e qa -a hrms-cli'
         }
     }
 }
