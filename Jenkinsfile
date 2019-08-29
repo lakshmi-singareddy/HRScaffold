@@ -28,12 +28,21 @@ pipeline {
                    } 
 
         }
-     stage('Deploy') {
+     stage('Dev-Deploy') {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/*-props.yaml'
             echo 'Deploying '
             sh 'hyscalectl login -hdemo.hyscale.io -uhyscalecli@hyscale.io -pHysc@l3@987'
             sh 'hyscalectl deploy -s hrms-frontend -e dev -p ${WORKSPACE}/dev-props.yaml -a HRMS'
+            sleep(120)
+        }
+    }
+     stage('Stage-Deploy') {
+            steps {
+            sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/*-props.yaml'
+            echo 'Deploying '
+            sh 'hyscalectl login -hdemo.hyscale.io -uhyscalecli@hyscale.io -pHysc@l3@987'
+            sh 'hyscalectl deploy -s hrms-frontend -e stage -p ${WORKSPACE}/stage-props.yaml -a HRMS'
             sleep(120)
         }
     }
