@@ -18,7 +18,7 @@ pipeline {
                  def uploadSpec = """{
                     "files": [{
                        "pattern": "${WORKSPACE}/target/*.war",
-                       "target": "HRMS/${BUILD_NUMBER}/"
+                       "target": "HRScaffold/${BUILD_NUMBER}/"
                     }]
                  }"""
             
@@ -32,7 +32,7 @@ pipeline {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/*-props.yaml'
             echo 'Deploying '
-            sh 'hyscalectl login -hdemo.hyscale.io -uhyscalecli@hyscale.io -pHysc@l3@987'
+            sh 'hyscalectl login --config /root/credentials' 
             sh 'hyscalectl deploy -s hrms-frontend -e dev -p ${WORKSPACE}/dev-props.yaml -a HRMS'
             sleep(120)
         }
@@ -41,7 +41,7 @@ pipeline {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/*-props.yaml'
             echo 'Deploying '
-            sh 'hyscalectl login -hdemo.hyscale.io -uhyscalecli@hyscale.io -pHysc@l3@987'
+            sh 'hyscalectl login --config /root/credentials'
             sh 'hyscalectl deploy -s hrms-frontend -e stage -p ${WORKSPACE}/stage-props.yaml -a HRMS'
             sleep(120)
         }
