@@ -41,7 +41,7 @@ pipeline {
     stage('Dev-Sanity-Test') {
             steps {
             echo 'Running Tests... '
-            sh "bash /var/lib/jenkins/sanity-test.sh HRMS 0"
+            sh "bash /var/lib/jenkins/sanity-test.sh HRMS dev"
         }
     }
 
@@ -58,7 +58,7 @@ pipeline {
     stage('Stage-Sanity-Test') {
             steps {
             echo 'Running Tests... '
-            sh "bash /var/lib/jenkins/sanity-test.sh HRMS 1"
+            sh "bash /var/lib/jenkins/sanity-test.sh HRMS stage"
         }
     }
 }
