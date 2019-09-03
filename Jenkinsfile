@@ -37,6 +37,14 @@ pipeline {
             sh "bash /var/lib/jenkins/service-status.sh HRMS 0"
         }
     }
+    
+    stage('Dev-Sanity-Test') {
+            steps {
+            echo 'Running Tests... '
+            sh "bash /var/lib/jenkins/sanity-test.sh HRMS 0"
+        }
+    }
+
      stage('Stage-Deploy') {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/*-props.yaml'
@@ -44,6 +52,13 @@ pipeline {
             sh 'hyscalectl login --config /var/lib/jenkins/credentials'
             sh 'hyscalectl deploy -s hrms-frontend -e stage -p ${WORKSPACE}/stage-props.yaml -a HRMS'
             sh "bash /var/lib/jenkins/service-status.sh HRMS 1"
+        }
+    }
+    
+    stage('Stage-Sanity-Test') {
+            steps {
+            echo 'Running Tests... '
+            sh "bash /var/lib/jenkins/sanity-test.sh HRMS 1"
         }
     }
 }
