@@ -34,7 +34,7 @@ pipeline {
             echo 'Deploying '
             sh 'hyscalectl login --config /var/lib/jenkins/credentials' 
             sh 'hyscalectl deploy -s hrms-frontend -e dev -p ${WORKSPACE}/dev-props.yaml -a HRMS'
-            sh "bash /var/lib/jenkins/service-status.sh `hyscalectl get env -a HRMS | awk '/0/ {print \$7}'`"
+            sh "bash /var/lib/jenkins/service-status.sh HRMS 0"
         }
     }
      stage('Stage-Deploy') {
@@ -43,7 +43,7 @@ pipeline {
             echo 'Deploying '
             sh 'hyscalectl login --config /var/lib/jenkins/credentials'
             sh 'hyscalectl deploy -s hrms-frontend -e stage -p ${WORKSPACE}/stage-props.yaml -a HRMS'
-            sh "bash /var/lib/jenkins/service-status.sh `hyscalectl get env -a HRMS | awk '/1/ {print \$7}'`"
+            sh "bash /var/lib/jenkins/service-status.sh HRMS 1"
         }
     }
 }
