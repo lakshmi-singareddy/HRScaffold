@@ -24,7 +24,7 @@ volumes:
     path: /usr/local/tomcat/logs
     size: 1 
     readOnly: false
-    storageClass: "standard" # storage class name from the cluster to use for pvc procurement
+    storageClass: "{{ hfs_STORAGE_CLASS | default ('gp2') }}" # storage class name from the cluster to use for pvc procurement
 props:
     - key: JAVA_HOME
       value: "/usr/local/java"

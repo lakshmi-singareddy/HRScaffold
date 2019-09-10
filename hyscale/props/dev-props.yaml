@@ -6,10 +6,10 @@ hrms-frontend:
   hfs_MAX_NO_OF_THREADS: "10"
   hfs_MAX_NO_OF_CONNECTIONS: "20"
   hfs_REPLICAS: 1
-  hfs_BUILD_NUM: @@BUILD_NUMBER@@
+  BUILD_NUM: @@BUILD_NUMBER@@
   hfs_LOG_SIZE_IN_GB: 2
   hfs_MEMORY_LIMIT_IN_MB: 2048
-  hfs_STORAGE_CLASS: "standard"
+  hfs_STORAGE_CLASS: "gp2"
   hfs_FLUENTD_ARGS: "--no-supervisor -vv"
   hfs_SYSTEM_INPUT_CONF: "/tmp/system.input.conf"
   hfs_OUTPUT_CONF: "/tmp/output.conf"
@@ -18,7 +18,7 @@ hrms-frontend:
   APP_DOMAIN: ""
 hrms-db:
   hfsdb_MYSQL_ROOT_PASSWORD: "pramati"
-  hfsdb_STORAGE_CLASS: "standard"
+  hfsdb_STORAGE_CLASS: "gp2"
   hfsdb_MYSQL_DATA_DIR_IN_GB: 1
   hfsdb_REPLICAS: 1
   hfsdb_MEMORY_LIMIT_IN_MB: 512

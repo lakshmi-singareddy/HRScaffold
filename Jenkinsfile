@@ -32,7 +32,7 @@ pipeline {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             sh 'sed -i "s|@@WORKSPACE@@|${WORKSPACE}|g" ${WORKSPACE}/hyscale/service-specs/*.yaml'
-            sh 'sed -i "s|@@CONFIG_DIR@@|hyscale/service-specs/config/|g" ${WORKSPACE}/hyscale/service-specs/*.yaml'
+            sh 'sed -i "s|@@CONFIG_DIR@@|hyscale/service-specs/config|g" ${WORKSPACE}/hyscale/service-specs/*.yaml'
             echo 'Deploying '
             sh 'hyscalectl login --config /var/lib/jenkins/credentials' 
             sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e dev -p ${WORKSPACE}/hyscale/props/dev-props.yaml -a HRMS'
