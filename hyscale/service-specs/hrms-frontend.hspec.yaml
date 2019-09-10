@@ -11,7 +11,7 @@ image:
               store: JFrog  # artifact store name from the platform
               repository: "HRScaffold"
               path: "${BUILD_NUM}/HRScaffold.war"
-           destination: /usr/local/tomcat/webapps/ROOT.war
+           destination: usr/local/content/tomcat/current/webapps/ROOT.war
 replicas: 1 
 memory: 2048
 ports:
