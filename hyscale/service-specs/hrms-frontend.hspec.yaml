@@ -20,7 +20,7 @@ ports:
          httpPath: /
        external: true
 volumes:
-  - name: logs
+  - name: tomcat-logs
     path: /usr/local/tomcat/logs
     size: 1 
     readOnly: false
