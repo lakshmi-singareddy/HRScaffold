@@ -31,7 +31,7 @@ pipeline {
      stage('Dev-Deploy') {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
-            sh 'sed -i "s/@@WORKSPACE@@/${WORKSPACE}/g" ${WORKSPACE}/'
+            sh 'sed -i "s|@@WORKSPACE@@|${WORKSPACE}|g" ${WORKSPACE}/'
             sh 'sed -i "s|@@CONFIG_DIR@@|hyscale/service-specs/config/|g" ${WORKSPACE}/'
             echo 'Deploying '
             sh 'hyscalectl login --config /var/lib/jenkins/credentials' 
