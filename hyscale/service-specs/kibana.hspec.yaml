@@ -1,0 +1,14 @@
+name: kibana
+image:
+   name: hrms-frontend
+   registry: gcr
+   tag: 1.0
+   buildSpec:
+     stackImage: es-kibana-hrms:6.3.2 #specify the stackImage and StackImage version taken from platform in image:version format
+     update: 1
+replicas: 1
+memory: 2048
+ports:
+     - port: 5601
+       external: true
+     - port: 9200

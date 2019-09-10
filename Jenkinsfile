@@ -31,9 +31,11 @@ pipeline {
      stage('Dev-Deploy') {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/*-props.yaml'
+            sh 'sed -i "s/@@WORKSPACE@@/${WORKSPACE}/g" ${WORKSPACE}/'
+            sh 'sed -i "s|@@CONFIG_DIR@@|hyscale/service-specs/config/|g" ${WORKSPACE}/'
             echo 'Deploying '
             sh 'hyscalectl login --config /var/lib/jenkins/credentials' 
-            sh 'hyscalectl deploy -s hrms-frontend -e dev -p ${WORKSPACE}/dev-props.yaml -a HRMS'
+            sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e dev -p ${WORKSPACE}/hyscale/props/dev-props.yaml -a HRMS'
             sh "bash /var/lib/jenkins/service-status.sh HRMS 0"
         }
     }
@@ -50,7 +52,7 @@ pipeline {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/*-props.yaml'
             echo 'Deploying '
             sh 'hyscalectl login --config /var/lib/jenkins/credentials'
-            sh 'hyscalectl deploy -s hrms-frontend -e stage -p ${WORKSPACE}/stage-props.yaml -a HRMS'
+            sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e stage -p ${WORKSPACE}/hyscale/props/stage-props.yaml -a HRMS'
             sh "bash /var/lib/jenkins/service-status.sh HRMS 1"
         }
     }

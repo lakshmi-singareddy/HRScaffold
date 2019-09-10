@@ -1,0 +1,18 @@
+hrms-frontend:
+  hfs_JAVA_HOME: "/usr/local/java"
+  hfs_TOMCAT_HOME: "/usr/local/content/tomcat"
+  hfs_COUNTRY: "INDIA"
+  hfs_REGION: "Hyderabad"
+  hfs_MAX_NO_OF_THREADS: "10"
+  hfs_MAX_NO_OF_CONNECTIONS: "5"
+  hfs_REPLICAS: 1
+  hfs_BUILD_NUM: "7"
+  hfs_LOG_SIZE_IN_GB: 1
+  hfs_MEMORY_LIMIT_IN_MB: 2048
+  hfs_STORAGE_CLASS: "gp2"
+hrms-db:
+  hfsdb_MYSQL_ROOT_PASSWORD: "pramati"
+  hfsdb_STORAGE_CLASS: "gp2"
+  hfsdb_MYSQL_DATA_DIR_IN_GB: 1
+  hfsdb_REPLICAS: 1
+  hfsdb_MEMORY_LIMIT_IN_MB: 512

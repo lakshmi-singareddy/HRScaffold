@@ -1,0 +1,35 @@
+name: hrdatabase
+image: 
+   name: hrdatabase
+   registry: gcr
+   tag: 1.0
+   buildSpec:
+     stackImage: mysql-official:8.0 #specify the stackImage and StackImage version taken from platform in image:version format
+     artifacts: 
+         - name: database-dump
+           source: 
+                store: Jenkins # artifact store name from the platform
+                basedir: "/var/lib/hyscale/db_scripts"
+                path: "hrdb_dump.sql"
+           destination: /docker-entrypoint-initdb.d/
+     runCommands: |-
+            if [ -d /var/lib/mysql/lost+found ]; then
+               echo "Found lost+found. Removing it ..."
+               rm -rf /var/lib/mysql/lost+found
+            fi
+replicas: 1 
+memory: 512
+ports:
+     - port: 3306
+       healthCheck: {}
+volumes:
+  - name: data
+    path: /var/lib/mysql
+    readOnly: false
+    storageClass: "standard" # storage class name from the cluster to use for pvc procurement
+    size: 1
+props: 
+   - key: MYSQL_ROOT_PASSWORD
+     type : PASSWORD
+     value: "cHJhbWF0aQ=="
+
