@@ -50,8 +50,10 @@ pipeline {
             }
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
+            sh 'cat ${WORKSPACE}/hyscale/props/stage-props.yaml'
             echo 'Deploying '
             sh 'hyscalectl login --config /var/lib/jenkins/credentials'
+            sh 'cat ${WORKSPACE}/hyscale/props/stage-props.yaml'
             sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e stage -p ${WORKSPACE}/hyscale/props/stage-props.yaml -a HRMS'
             sh "bash /var/lib/jenkins/service-status.sh HRMS 1"
         }
