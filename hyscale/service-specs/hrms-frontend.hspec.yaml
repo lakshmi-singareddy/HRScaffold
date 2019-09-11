@@ -19,10 +19,10 @@ ports:
        healthCheck:
          httpPath: /
        external: true
-#       lbMappings:
-#         tls: false
-#         contextPaths:
-#         - path: /hrms
+       lbMappings:
+         tls: false
+         contextPaths:
+         - path: /hrms
 volumes:
   - name: tomcat-logs
     path: /usr/local/tomcat/logs
