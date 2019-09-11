@@ -5,8 +5,6 @@ pipeline {
         stage('Build') {
         steps {
                 sh 'mvn clean install -DskipTests'
-            }
-        steps {
             script {
 
                  def server = Artifactory.newServer url: 'http://172.17.0.2:8081/artifactory', username: 'admin', password: 'Hysc@l3@789'
