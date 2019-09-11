@@ -6,14 +6,9 @@ pipeline {
         steps {
                 sh 'mvn clean install -DskipTests'
             }
-
-        }
-     
-    
-     stage('Artifactory configuration') {
-            steps {
+        steps {
             script {
-                 
+
                  def server = Artifactory.newServer url: 'http://172.17.0.2:8081/artifactory', username: 'admin', password: 'Hysc@l3@789'
                  def uploadSpec = """{
                     "files": [{
@@ -21,13 +16,14 @@ pipeline {
                        "target": "HRScaffold/${BUILD_NUMBER}/"
                     }]
                  }"""
-            
-                 server.upload(uploadSpec) 
+
+                 server.upload(uploadSpec)
                }
-                         
-                   } 
+
+                   }
 
         }
+     
      stage('Dev-Deploy') {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
@@ -48,6 +44,10 @@ pipeline {
     }
 
      stage('Stage-Deploy') {
+            input {
+                message "Deploy to stage?"
+                ok "Yes"
+            }
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             echo 'Deploying '
