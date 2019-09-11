@@ -11,18 +11,18 @@ image:
               store: JFrog  # artifact store name from the platform
               repository: "HRScaffold"
               path: "${BUILD_NUM}/HRScaffold.war"
-           destination: usr/local/content/tomcat/current/webapps/hrms.war
+           destination: usr/local/content/tomcat/current/webapps/ROOT.war
 replicas: 1 
 memory: 2048
 ports:
      - port: 8080
        healthCheck:
-         httpPath: /hrms
+         httpPath: /
        external: true
-       lbMappings:
-         tls: false
-         contextPaths:
-         - path: /hrms
+#       lbMappings:
+#         tls: false
+#         contextPaths:
+#         - path: /hrms
 volumes:
   - name: tomcat-logs
     path: /usr/local/tomcat/logs
