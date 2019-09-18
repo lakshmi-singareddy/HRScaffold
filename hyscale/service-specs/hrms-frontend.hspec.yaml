@@ -44,8 +44,10 @@ props:
       value: "10"
     - key: MYSQL_HOST
       value: hrdatabase
+      type: ENDPOINT
     - key: MYSQL_ROOT_PASSWORD
       value: cHJhbWF0aQ==
+      type: PASSWORD
 agents:
     - name: fluentd
       image: fluentd:4.3 # side car image and version in the image:version format from the platform
