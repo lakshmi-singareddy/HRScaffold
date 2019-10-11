@@ -39,11 +39,8 @@ pipeline {
     }
 
      stage('Stage-Deploy') {
-            input {
-                message "Deploy to stage?"
-                ok "Yes"
-            }
             steps {
+            input message: 'Deploy to stage? (Click "Proceed" to continue)'
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             sh 'hyscalectl login --config /var/lib/jenkins/credentials'
             sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e stage -p ${WORKSPACE}/hyscale/props/stage-props.yaml -a HRMS'
