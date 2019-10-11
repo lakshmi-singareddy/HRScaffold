@@ -56,10 +56,10 @@ agents:
         value: "--no-supervisor -vv"
       - key: "system.input.conf"
         type: FILE
-        value: "@@WORKSPACE@@/@@CONFIG_DIR@@/system.input.conf"  # add the full path to this file
+        value: "/var/lib/jenkins/workspace/HRMS-APP-CD-CI/hyscale/service-specs/config/system.input.conf"  # add the full path to this file
       - key: "output.conf"
         type: FILE
-        value: "@@WORKSPACE@@/@@CONFIG_DIR@@/output.conf"    # add the full path to this file
+        value: "/var/lib/jenkins/workspace/HRMS-APP-CD-CI/hyscale/service-specs/config/output.conf"    # add the full path to this file
       volumes:
       - path: "/mnt/log"
         name: "tomcat-logs" # should be same as the volume name of frontend container
