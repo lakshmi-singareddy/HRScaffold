@@ -20,7 +20,7 @@ maximum_attempts=20
         continue
       fi
   done
-if [ $attempt = 6 ]
+if [ $attempt = 20 ]
 then
       echo "Deployment FAILED, giving up !!"
       exit 1
