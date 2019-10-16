@@ -31,17 +31,17 @@ volumes:
     storageClass: "{{ hfs_STORAGE_CLASS | default ('gp2') }}" # storage class name from the cluster to use for pvc procurement
 props:
     - key: JAVA_HOME
-      value: "/usr/local/java"
+      value: "{{ hfs_JAVA_HOME | default ('/usr/local/java') }}"
     - key: TOMCAT_HOME
-      value: "/usr/local/content/tomcat"
+      value: "{{ hfs_JAVA_HOME | default ('/usr/local/content/tomcat') }}"
     - key: COUNTRY
-      value: "INDIA"
+      value: "{{ hfs_COUNTRY | default ('INDIA') }}"
     - key: REGION
-      value: "HYD"
+      value: "{{ hfs_COUNTRY | default ('HYS') }}"
     - key: MAX_NO_OF_THREADS
-      value: "10"
+      value: "{{ hfs_MAX_NO_OF_THREADS | default ('20') }}"
     - key: MAX_NO_OF_CONNECTIONS
-      value: "10"
+      value: "{{ hfs_MAX_NO_OF_CONNECTIONS | default ('10') }}"
     - key: MYSQL_HOST
       value: hrdatabase
       type: ENDPOINT

@@ -27,14 +27,14 @@ pipeline {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             sh 'hyscalectl login --config /var/lib/jenkins/credentials' 
             sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e Test -p ${WORKSPACE}/hyscale/props/test-props.yaml -a HRScaffold'
-            sh "bash /var/lib/jenkins/service-status.sh HRScaffold 0"
+            sh "bash ${WORKSPACE}/scripts/service-status.sh HRScaffold Test"
         }
     }
     
     stage('Dev-Sanity-Test') {
             steps {
             echo 'Running Tests... '
-            sh "bash /var/lib/jenkins/sanity-test.sh HRScaffold Test"
+            sh "bash ${WORKSPACE}/scripts/sanity-test.sh HRScaffold Test"
         }
     }
 
@@ -44,14 +44,14 @@ pipeline {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             sh 'hyscalectl login --config /var/lib/jenkins/credentials'
             sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e Stage -p ${WORKSPACE}/hyscale/props/stage-props.yaml -a HRScaffold'
-            sh "bash /var/lib/jenkins/service-status.sh HRScaffold 1"
+            sh "bash ${WORKSPACE}/scripts/service-status.sh HRScaffold Stage"
         }
     }
     
     stage('Stage-Sanity-Test') {
             steps {
             echo 'Running Tests... '
-            sh "bash /var/lib/jenkins/sanity-test.sh HRScaffold Stage"
+            sh "bash ${WORKSPACE}/scripts/sanity-test.sh HRScaffold Stage"
         }
     }
 }
