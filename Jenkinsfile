@@ -33,7 +33,6 @@ pipeline {
     
     stage('Dev-Sanity-Test') {
             steps {
-            echo 'Running Tests... '
             sh "bash ${WORKSPACE}/scripts/sanity-test.sh HRMS dev"
         }
     }
@@ -50,7 +49,6 @@ pipeline {
     
     stage('Stage-Sanity-Test') {
             steps {
-            echo 'Running Tests... '
             sh "bash ${WORKSPACE}/scripts/sanity-test.sh HRMS stage"
         }
     }
