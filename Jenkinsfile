@@ -39,7 +39,7 @@ pipeline {
 
      stage('Stage-Deploy') {
             steps {
-            timeout(time: 10, unit: 'MINUTES') {
+            timeout(time: 1, unit: 'HOURS') {
                             input message: 'Deploy to stage? (Click "Proceed" to continue)'
                         }
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
