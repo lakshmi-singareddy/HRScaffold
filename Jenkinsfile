@@ -22,7 +22,7 @@ pipeline {
 
         }
      
-     stage('Dev-Deploy') {
+     stage('Test-Deploy') {
             steps {
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             sh 'hyscalectl login --config /var/lib/jenkins/credentials' 
@@ -31,7 +31,7 @@ pipeline {
         }
     }
     
-    stage('Dev-Sanity-Test') {
+    stage('Test-Sanity-Test') {
             steps {
             sh "bash ${WORKSPACE}/scripts/sanity-test.sh HRScaffold Test"
         }
@@ -40,7 +40,7 @@ pipeline {
      stage('Stage-Deploy') {
             steps {
             timeout(time: 1, unit: 'HOURS') {
-                            input message: 'Deploy to stage? (Click "Proceed" to continue)'
+                            input message: 'Do you want to approve the stage deploy?', ok: 'Yes'
                         }
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             sh 'hyscalectl login --config /var/lib/jenkins/credentials'
