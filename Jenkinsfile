@@ -24,9 +24,8 @@ pipeline {
      
      stage('Dev-Deploy') {
             steps {
-            sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             sh 'hyscalectl login --config /var/lib/jenkins/credentials' 
-            sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e dev -p ${WORKSPACE}/hyscale/props/dev-props.yaml -a HRMS'
+            sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e dev -p dev -a HRMS -d BUILD_NUM=${BUILD_NUMBER}'
             sh "bash ${WORKSPACE}/scripts/service-status.sh HRMS dev"
         }
     }
@@ -44,7 +43,7 @@ pipeline {
                         }
             sh 'sed -i "s/@@BUILD_NUMBER@@/${BUILD_NUMBER}/g" ${WORKSPACE}/hyscale/props/*-props.yaml'
             sh 'hyscalectl login --config /var/lib/jenkins/credentials'
-            sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e stage -p ${WORKSPACE}/hyscale/props/stage-props.yaml -a HRMS'
+            sh 'hyscalectl deploy -f ${WORKSPACE}/hyscale/service-specs/hrms-frontend.hspec.yaml -e stage -p stage -a HRMS -d BUILD_NUM=${BUILD_NUMBER}'
             sh "bash  ${WORKSPACE}/scripts/service-status.sh HRMS stage"
         }
     }

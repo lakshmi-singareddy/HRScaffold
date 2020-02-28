@@ -1,66 +1,47 @@
-name: hrms-frontend
-depends: 
-      - hrdatabase
-image:
-   buildSpec:
-     stackImage: tomcat-image:8.5.15 #specify the stackImage and StackImage version taken from platform in image:version format
-     update: 1   #specify update version of stack-image
-     artifacts: 
-         - name: HRScaffold_war
-           source:
-              store: JFrog  # artifact store name from the platform
-              repository: "HRScaffold"
-              path: "${BUILD_NUM}/HRScaffold.war"
-           destination: usr/local/content/tomcat/current/webapps/hrms.war
-replicas: 1 
-memory: 2048
+name: "hrms-frontend"
+depends:
+- "serv-def-HBMwJFM1"
 ports:
-     - port: 8080
-       healthCheck:
-         httpPath: /hrms
-       external: true
-       lbMappings:
-         tls: false
-         contextPaths:
-         - path: /hrms
-volumes:
-  - name: tomcat-logs
-    path: /usr/local/tomcat/logs
-    size: 1 
-    readOnly: false
-    storageClass: "{{ hfs_STORAGE_CLASS | default ('gp2') }}" # storage class name from the cluster to use for pvc procurement
+- port: "8080/HTTP"
+  healthCheck:
+    httpPath: "/hrms"
 props:
-    - key: JAVA_HOME
-      value: "{{ hfs_JAVA_HOME | default ('/usr/local/java') }}"
-    - key: TOMCAT_HOME
-      value: "{{ hfs_JAVA_HOME | default ('/usr/local/content/tomcat') }}"
-    - key: COUNTRY
-      value: "{{ hfs_COUNTRY | default ('INDIA') }}"
-    - key: REGION
-      value: "{{ hfs_COUNTRY | default ('HYS') }}"
-    - key: MAX_NO_OF_THREADS
-      value: "{{ hfs_MAX_NO_OF_THREADS | default ('20') }}"
-    - key: MAX_NO_OF_CONNECTIONS
-      value: "{{ hfs_MAX_NO_OF_CONNECTIONS | default ('10') }}"
-    - key: MYSQL_HOST
-      value: hrdatabase
-      type: ENDPOINT
-    - key: MYSQL_ROOT_PASSWORD
-      value: cHJhbWF0aQ==
-      type: PASSWORD
+  COUNTRY: "string(INDIA)"
+  MAX_NO_OF_THREADS: "string(20)"
+  JAVA_HOME: "string(/usr/local/java)"
+  TOMCAT_HOME: "string(/usr/local/content/tomcat)"
+  MYSQL_HOST: "endpoint(hrdatabase)"
+  REGION: "string(HYS)"
+  MAX_NO_OF_CONNECTIONS: "string(10)"
+secrets:
+  MYSQL_ROOT_PASSWORD: "pramati"
+volumes:
+- name: "tomcat-logs"
+  path: "/usr/local/tomcat/logs"
+  readOnly: false
+  size: "1Gi"
+propsVolumePath: "/usr/local/config"
+secretsVolumePath: "/usr/local/secret"
 agents:
-    - name: fluentd
-      image: fluentd:4.3 # side car image and version in the image:version format from the platform
-      props:
-      - key: FLUENTD_ARGS
-        value: "--no-supervisor -vv"
-      - key: "system.input.conf"
-        type: FILE
-        value: "/var/lib/jenkins/workspace/HRMS-APP-CD-CI/hyscale/service-specs/config/system.input.conf"  # add the full path to this file
-      - key: "output.conf"
-        type: FILE
-        value: "/var/lib/jenkins/workspace/HRMS-APP-CD-CI/hyscale/service-specs/config/output.conf"    # add the full path to this file
-      volumes:
-      - path: "/mnt/log"
-        name: "tomcat-logs" # should be same as the volume name of frontend container
-
+- name: "fluentd"
+  image: "hyscale.platform.host:5000/fluentd:4.3"
+  props:
+    FLUENTD_ARGS: "string(--no-supervisor -vv)"
+    output.conf: "file(/var/lib/jenkins/workspace/HRMS-APP-CD-CI/hyscale/service-specs/config/output.conf)"
+    system.input.conf: "file(/var/lib/jenkins/workspace/HRMS-APP-CD-CI/hyscale/service-specs/config/system.input.conf)"
+  secrets: {}
+  volumes:
+  - mountPath: "/mnt/log"
+    attach: "tomcat-logs"
+    readOnly: true
+  propsVolumePath: "/etc/fluent/config.d"
+  secretsVolumePath: "/usr/local/secret"
+image:
+  buildSpec:
+    stackImage: "hyscale.platform.host:5000/tomcat-image:8.5.15"
+    artifacts:
+    - name: "HRScaffold_war"
+      destination: "usr/local/content/tomcat/current/webapps/hrms.war"
+      source: "HRScaffold.war"
+    runCommands: ""
+external: false

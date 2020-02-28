@@ -1,0 +1,18 @@
+environment: "dev"
+overrides: "hrms-frontend"
+props:
+  COUNTRY: "string(INDIA)"
+  MAX_NO_OF_THREADS: "string(10)"
+  JAVA_HOME: "string(/usr/local/java)"
+  TOMCAT_HOME: "string(/usr/local/java)"
+  MYSQL_HOST: "endpoint(hrdatabase)"
+  REGION: "string(INDIA)"
+  MAX_NO_OF_CONNECTIONS: "string(20)"
+secrets:
+  MYSQL_ROOT_PASSWORD: "pramati"
+volumes:
+- name: "tomcat-logs"
+  storageClass: "gp2"
+  size: "1Gi"
+memory: "2048Mi-2048Mi"
+replicas: 1
