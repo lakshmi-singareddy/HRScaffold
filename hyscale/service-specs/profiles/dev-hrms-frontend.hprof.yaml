@@ -4,7 +4,7 @@ props:
   COUNTRY: "string(INDIA)"
   MAX_NO_OF_THREADS: "string(10)"
   JAVA_HOME: "string(/usr/local/java)"
-  TOMCAT_HOME: "string(/usr/local/java)"
+  TOMCAT_HOME: "string(/usr/local/content/tomcat)"
   MYSQL_HOST: "endpoint(hrdatabase)"
   REGION: "string(INDIA)"
   MAX_NO_OF_CONNECTIONS: "string(20)"
