@@ -5,7 +5,7 @@ env=$2
 sleep 3
 echo "Deployment Started...."
 attempt=0
-maximum_attempts=20
+maximum_attempts=40
 
   while [ $attempt -lt $maximum_attempts ];
     do
